@@ -1,0 +1,21 @@
+apply plugin: 'groovy'
+apply plugin: 'application'
+
+mainClassName = "example.HttpKafkaServer"
+applicationDefaultJvmArgs = []
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.netty:netty-all:5.0.0.Alpha1'
+    compile 'org.apache.kafka:kafka_2.10:0.8.2-beta'
+
+    testCompile 'org.codehaus.groovy:groovy:2.3.6'
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2'
+}
